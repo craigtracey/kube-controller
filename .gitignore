@@ -1,0 +1,5 @@
+.eggs/
+AUTHORS
+ChangeLog
+build/
+kube_controller.egg-info/
