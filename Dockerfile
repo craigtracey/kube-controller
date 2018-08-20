@@ -1,6 +1,6 @@
 FROM python:2-alpine3.8
 
-RUN apk update && apk add git
+RUN apk update && apk add build-base git libffi-dev openssl-dev
 
 WORKDIR /tmp/
 COPY kube_controller /tmp/kube_controller/

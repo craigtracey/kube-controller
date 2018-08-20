@@ -1,0 +1,6 @@
+apiVersion: crd.example.com/v1
+kind: Sample
+metadata:
+  name: sample-1
+spec:
+  foo: bar
