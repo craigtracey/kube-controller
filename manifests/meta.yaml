@@ -2,7 +2,7 @@
 apiVersion: metacontroller.k8s.io/v1alpha1
 kind: CompositeController
 metadata:
-  name: sample-controller
+  name: sample-controller-meta
 spec:
   generateSelector: true
   parentResource:
@@ -19,17 +19,17 @@ spec:
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: sample-controller
+  name: sample-controller-meta
   namespace: metacontroller
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: sample-controller
+      app: sample-controller-meta
   template:
     metadata:
       labels:
-        app: sample-controller
+        app: sample-controller-meta
     spec:
       nodeSelector:
         kubernetes.io/hostname: ip-10-0-26-37.ec2.internal
@@ -46,7 +46,7 @@ metadata:
   namespace: metacontroller
 spec:
   selector:
-    app: sample-controller
+    app: sample-controller-meta
   ports:
   - port: 80
     targetPort: 8080

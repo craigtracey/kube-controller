@@ -8,9 +8,10 @@ LOG = logging.getLogger(__name__)
 app = Flask(__name__)
 
 
-@app.route('/', methods=['POST', 'PUT'])
+@app.route('/', methods=['POST', 'PUT', 'DELETE'])
 def index():
-    LOG.info("Received: %s" % pprint.pprint(request.json))
+    LOG.info("Received: %s %s" % (pprint.pprint(request.json),
+				  pprint.pprint(request.headers)))
     response = app.response_class(
         response=json.dumps({"status": {"success": "true"}, "children": []}),
         status=200,
